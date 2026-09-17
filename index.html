@@ -5,236 +5,46 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Dom na sprzedaż – Czarnowie</title>
 <meta name="description" content="Wyjątkowy dom jednorodzinny z litego drewna na sprzedaż w Czarnowie. 115m2, zbudowany w 2008 roku, po remoncie w 2024.">
-<style>
-  :root {
-    --bg: #faf7f2;
-    --text: #2b2420;
-    --muted: #6b6058;
-    --accent: #7a5c3e;
-    --card-bg: #ffffff;
-    --border: #e6ddd2;
-  }
-  @media (prefers-color-scheme: dark) {
-    :root:not([data-theme="light"]) {
-      --bg: #1b1815;
-      --text: #ede6dc;
-      --muted: #b3a89b;
-      --accent: #d9b98a;
-      --card-bg: #262220;
-      --border: #3a332c;
-    }
-  }
-  * { box-sizing: border-box; }
-  html, body {
-    margin: 0;
-    padding: 0;
-    background: var(--bg);
-    color: var(--text);
-    font-family: -apple-system, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
-    scroll-behavior: smooth;
-  }
-  header {
-    padding: 48px 20px 28px;
-    text-align: center;
-    max-width: 760px;
-    margin: 0 auto;
-  }
-  header h1 {
-    font-size: clamp(28px, 5vw, 42px);
-    margin: 0 0 8px;
-    font-weight: 700;
-    letter-spacing: -0.02em;
-  }
-  header p.subtitle {
-    color: var(--muted);
-    font-size: 17px;
-    margin: 0;
-  }
-  .stats {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 10px;
-    justify-content: center;
-    margin: 20px 0 0;
-  }
-  .stat {
-    background: var(--card-bg);
-    border: 1px solid var(--border);
-    border-radius: 999px;
-    padding: 8px 16px;
-    font-size: 14px;
-    color: var(--text);
-  }
-  .stat b { color: var(--accent); }
-
-  .gallery {
-    max-width: 1400px;
-    margin: 0 auto;
-    padding: 20px;
-    display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
-    gap: 14px;
-  }
-  .gallery figure {
-    margin: 0;
-    overflow: hidden;
-    border-radius: 12px;
-    background: var(--card-bg);
-    border: 1px solid var(--border);
-    cursor: zoom-in;
-    aspect-ratio: 4 / 3;
-  }
-  .gallery img {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-    display: block;
-    transition: transform 0.35s ease;
-    loading: lazy;
-  }
-  .gallery figure:hover img {
-    transform: scale(1.06);
-  }
-
-  section.info {
-    max-width: 760px;
-    margin: 40px auto;
-    padding: 0 20px;
-  }
-  section.info h2 {
-    font-size: 26px;
-    margin: 40px 0 14px;
-    letter-spacing: -0.01em;
-  }
-  section.info h2:first-child { margin-top: 0; }
-  .card {
-    background: var(--card-bg);
-    border: 1px solid var(--border);
-    border-radius: 16px;
-    padding: 24px 28px;
-  }
-  .card p { line-height: 1.65; margin: 0 0 14px; }
-  .card p:last-child { margin-bottom: 0; }
-
-  .rooms {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 20px;
-  }
-  @media (max-width: 560px) {
-    .rooms { grid-template-columns: 1fr; }
-  }
-  .rooms h3 {
-    margin: 0 0 8px;
-    font-size: 16px;
-    color: var(--accent);
-    text-transform: uppercase;
-    letter-spacing: 0.05em;
-  }
-  .rooms ul {
-    margin: 0;
-    padding-left: 18px;
-    line-height: 1.6;
-  }
-
-  .amenities {
-    display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
-    gap: 10px;
-    list-style: none;
-    margin: 0;
-    padding: 0;
-  }
-  .amenities li {
-    background: var(--bg);
-    border: 1px solid var(--border);
-    border-radius: 10px;
-    padding: 10px 14px;
-    font-size: 15px;
-    display: flex;
-    align-items: center;
-    gap: 8px;
-  }
-  .amenities li::before {
-    content: "✓";
-    color: var(--accent);
-    font-weight: bold;
-  }
-
-  footer {
-    text-align: center;
-    padding: 40px 20px 60px;
-    color: var(--muted);
-    font-size: 14px;
-  }
-
-  .lightbox {
-    position: fixed;
-    inset: 0;
-    background: rgba(0,0,0,0.92);
-    display: none;
-    align-items: center;
-    justify-content: center;
-    z-index: 100;
-    padding: 20px;
-  }
-  .lightbox.open { display: flex; }
-  .lightbox img {
-    max-width: 100%;
-    max-height: 90vh;
-    border-radius: 6px;
-    box-shadow: 0 10px 40px rgba(0,0,0,0.5);
-  }
-  .lightbox .close {
-    position: absolute;
-    top: 20px;
-    right: 28px;
-    color: #fff;
-    font-size: 34px;
-    cursor: pointer;
-    line-height: 1;
-    user-select: none;
-  }
-  .lightbox .nav {
-    position: absolute;
-    top: 50%;
-    transform: translateY(-50%);
-    color: #fff;
-    font-size: 42px;
-    cursor: pointer;
-    padding: 10px 18px;
-    user-select: none;
-    opacity: 0.7;
-  }
-  .lightbox .nav:hover { opacity: 1; }
-  .lightbox .prev { left: 4px; }
-  .lightbox .next { right: 4px; }
-</style>
+<link rel="stylesheet" href="assets/style.css">
 </head>
 <body>
 
-<header>
-  <h1>Dom na sprzedaż – Czarnowie</h1>
-  <p class="subtitle">Wyjątkowy dom jednorodzinny z litego drewna, w otoczeniu zieleni</p>
-  <div class="stats">
-    <div class="stat"><b>115 m²</b> powierzchni</div>
-    <div class="stat">Rok budowy: <b>2008</b></div>
-    <div class="stat">Konstrukcja: <b>lite drewno</b></div>
-    <div class="stat">Remont: <b>2024</b></div>
+<nav class="navbar">
+  <div class="nav-inner">
+    <a href="#top" class="brand">Dom w Czarnowie</a>
+    <button class="nav-toggle" id="nav-toggle" aria-label="Menu">&#9776;</button>
+    <ul class="nav-links" id="nav-links">
+      <li class="nav-item"><a class="nav-link" href="#oferta">Oferta</a></li>
+      <li class="nav-item has-dropdown">
+        <a class="nav-link dropdown-toggle" href="#pomieszczenia">Pomieszczenia ▾</a>
+        <div class="dropdown" id="rooms-dropdown"></div>
+      </li>
+      <li class="nav-item"><a class="nav-link" href="#rzuty-section">Rzuty</a></li>
+      <li class="nav-item"><a class="nav-link" href="#specyfikacja">Specyfikacja</a></li>
+      <li class="nav-item"><a class="nav-link" href="#kontakt">Kontakt</a></li>
+    </ul>
   </div>
+</nav>
+
+<header class="hero" id="top" style="background-image: url('images/ogrod/IMG_9312.jpg');">
+  <div class="hero-content">
+    <h1>Dom na sprzedaż – Czarnowie</h1>
+    <p>Wyjątkowy dom jednorodzinny z litego drewna, w otoczeniu zieleni</p>
+    <div class="hero-stats">
+      <div class="stat"><b>115 m²</b> powierzchni użytkowej</div>
+      <div class="stat">Rok budowy: <b>2008</b></div>
+      <div class="stat">Konstrukcja: <b>lite drewno</b></div>
+      <div class="stat">Remont: <b>2024</b></div>
+    </div>
+  </div>
+  <div class="hero-scroll">&#8595;</div>
 </header>
 
-<div class="gallery" id="gallery"></div>
-
-<div class="lightbox" id="lightbox">
-  <span class="close" id="lightbox-close">&times;</span>
-  <span class="nav prev" id="lightbox-prev">&#8249;</span>
-  <img id="lightbox-img" src="" alt="">
-  <span class="nav next" id="lightbox-next">&#8250;</span>
-</div>
-
-<section class="info">
-  <h2>O domu</h2>
+<section class="section section-narrow" id="oferta">
+  <div class="section-head">
+    <span class="eyebrow">O domu</span>
+    <h2>Wyjątkowy dom z litego drewna</h2>
+  </div>
   <div class="card">
     <p>Na sprzedaż wyjątkowy dom jednorodzinny zbudowany w 2008 roku. Powierzchnia użytkowa 115&nbsp;m².</p>
     <p>Wykonany z litego drewna – lite drewniane bale, nie żadne szkielety, sklejki czy OSB.</p>
@@ -243,118 +53,113 @@
     <p>W 2026 zrobiliśmy modernizację ogrodu i tarasu.</p>
     <p>Dom jest bardzo przytulny, jak to domy z drewna, ma znakomity mikroklimat i charakterystykę cieplną.</p>
   </div>
+</section>
 
-  <h2>Pomieszczenia</h2>
-  <div class="card rooms">
+<section class="section section-alt" id="pomieszczenia">
+  <div class="section-head">
+    <span class="eyebrow">Zwiedzanie domu</span>
+    <h2>Pomieszczenia</h2>
+    <p>Od wejścia na przyziemiu, przez sypialnie na poddaszu, po ogród i zabudowania — w takiej kolejności, w jakiej naprawdę porusza się po tym domu.</p>
+  </div>
+  <div id="pomieszczenia-body"></div>
+</section>
+
+<section class="section" id="rzuty-section">
+  <div class="section-head">
+    <span class="eyebrow">Dokumentacja</span>
+    <h2>Rzuty budynku</h2>
+    <p>Skany rzutów z projektu architektonicznego — przyziemie i poddasze.</p>
+  </div>
+  <div id="rzuty-gallery"></div>
+</section>
+
+<section class="section section-alt" id="specyfikacja">
+  <div class="section-head">
+    <span class="eyebrow">Dane techniczne</span>
+    <h2>Specyfikacja techniczna</h2>
+    <p>Parametry budynku wg projektu architektoniczno-konstrukcyjnego oraz zainstalowane udogodnienia.</p>
+  </div>
+
+  <div class="spec-tables">
+    <table class="spec-table">
+      <caption>Parametry techniczne budynku</caption>
+      <tr><th>Kubatura netto</th><td>337,85 m³</td></tr>
+      <tr><th>Powierzchnia całkowita</th><td>188,00 m²</td></tr>
+      <tr><th>Powierzchnia zabudowy</th><td>69,49 m²</td></tr>
+      <tr><th>Powierzchnia schodów i tarasów</th><td>35,13 m²</td></tr>
+      <tr><th>Powierzchnia użytkowa</th><td>115,12 m²</td></tr>
+      <tr><th>Wysokość budynku</th><td>7,68 m</td></tr>
+    </table>
+
+    <table class="spec-table">
+      <caption>Powierzchnia użytkowa — przyziemie</caption>
+      <tr><th>Wiatrołap</th><td>5,75 m²</td></tr>
+      <tr><th>Garderoba</th><td>3,06 m²</td></tr>
+      <tr><th>Korytarz</th><td>2,56 m²</td></tr>
+      <tr><th>Łazienka</th><td>2,91 m²</td></tr>
+      <tr><th>Kuchnia</th><td>7,43 m²</td></tr>
+      <tr><th>Salon + klatka schodowa</th><td>28,03 m²</td></tr>
+      <tr><th>Pokój</th><td>8,09 m²</td></tr>
+      <tr><th>Razem</th><td>57,83 m²</td></tr>
+    </table>
+  </div>
+
+  <div class="spec-tables">
+    <table class="spec-table">
+      <caption>Powierzchnia użytkowa — poddasze</caption>
+      <tr><th>Przedpokój</th><td>6,40 m²</td></tr>
+      <tr><th>Schowek</th><td>3,45 m²</td></tr>
+      <tr><th>Łazienka</th><td>5,77 m²</td></tr>
+      <tr><th>Pokój</th><td>8,58 m²</td></tr>
+      <tr><th>Pokój</th><td>17,27 m²</td></tr>
+      <tr><th>Pokój</th><td>13,08 m²</td></tr>
+      <tr><th>Klatka schodowa</th><td>2,74 m²</td></tr>
+      <tr><th>Razem</th><td>57,29 m²</td></tr>
+    </table>
+
     <div>
-      <h3>Parter</h3>
-      <ul>
-        <li>Przedpokój</li>
-        <li>Salon</li>
-        <li>Kuchnia</li>
-        <li>Pralnia / spiżarnia</li>
-        <li>Łazienka – prysznic i WC</li>
-      </ul>
-    </div>
-    <div>
-      <h3>Piętro</h3>
-      <ul>
-        <li>Pokój</li>
-        <li>Pokój</li>
-        <li>Pokój</li>
-        <li>Łazienka – wanna i WC</li>
-        <li>Mała garderoba</li>
-      </ul>
-    </div>
-    <div>
-      <h3>Poddasze</h3>
-      <ul>
-        <li>Składzik</li>
-      </ul>
-    </div>
-    <div>
-      <h3>Na zewnątrz</h3>
-      <ul>
-        <li>Dwa niezależne miejsca parkingowe na podjeździe</li>
-        <li>Solidna wiata garażowa z budynkiem gospodarczym</li>
-        <li>Ogród obsadzony wieloletnimi roślinami iglastymi i liściastymi</li>
+      <table class="spec-table">
+        <caption>Udogodnienia</caption>
+      </table>
+      <ul class="amenities" style="margin-top:-6px;">
+        <li>Klimatyzacja</li>
+        <li>Sauna</li>
+        <li>Pompa ciepła (gruntowa)</li>
+        <li>Ogrzewanie podłogowe</li>
+        <li>Automatyczne nawodnienie</li>
+        <li>Kamery monitoringu</li>
+        <li>Smart oświetlenie</li>
+        <li>Alarm Solid</li>
+        <li>Robot koszący</li>
+        <li>Fotowoltaika</li>
+        <li>Brama na pilota</li>
       </ul>
     </div>
   </div>
 
-  <h2>Udogodnienia</h2>
-  <div class="card">
-    <ul class="amenities">
-      <li>Klimatyzacja</li>
-      <li>Sauna</li>
-      <li>Pompa ciepła (gruntowa, nie powietrzna)</li>
-      <li>Ogrzewanie podłogowe</li>
-      <li>Automatyczne nawodnienie ogródka</li>
-      <li>Kamery monitoringu</li>
-      <li>Smart oświetlenie domu</li>
-      <li>Instalacja alarmowa Solid</li>
-      <li>Automatyczny robot koszący trawę</li>
-      <li>Fotowoltaika</li>
-      <li>Brama na pilota</li>
-    </ul>
+  <p class="scan-note">Poniżej oryginalny opis techniczny z projektu architektoniczno-konstrukcyjnego (skan):</p>
+  <div id="opis-gallery"></div>
+</section>
+
+<section class="section section-narrow" id="kontakt">
+  <div class="card contact-card">
+    <h3>Zainteresowani?</h3>
+    <p>Skontaktuj się w sprawie oferty — poniżej dane kontaktowe.</p>
+    <p class="placeholder">Dane kontaktowe: [imię, telefon, e-mail] — do uzupełnienia</p>
   </div>
 </section>
 
 <footer>
-  Zdjęcia domu w Czarnowie · Kontakt w sprawie ogłoszenia u właściciela
+  Dom w Czarnowie · Zdjęcia i dokumentacja domu na sprzedaż
 </footer>
 
-<script>
-  const images = ["20241204_110610.jpg","20241204_110618.jpg","20241204_110628.jpg","20260809_175229.jpg","20260809_175533.jpg","20260809_175559.jpg","20260809_175610.jpg","20260809_175715.jpg","20260809_175751.jpg","20260812_175036.jpg","20260812_175254.jpg","20260812_191121.jpg","20260812_191146.jpg","20260905_160002.jpg","20260905_160025.jpg","IMG_1315.jpg","IMG_3089.jpg","IMG_3095.jpg","IMG_3615.jpg","IMG_5082.jpg","IMG_5083.jpg","IMG_5184.jpg","IMG_5468.jpg","IMG_6357.jpg","IMG_6361.jpg","IMG_7518.jpg","IMG_9207.jpg","IMG_9236.jpg","IMG_9238.jpg","IMG_9239.jpg","IMG_9242.jpg","IMG_9245.jpg","IMG_9249.jpg","IMG_9312.jpg","IMG_9314.jpg"];
-  const gallery = document.getElementById('gallery');
-  images.forEach((src, i) => {
-    const fig = document.createElement('figure');
-    fig.dataset.index = i;
-    const img = document.createElement('img');
-    img.src = 'images/' + src;
-    img.loading = 'lazy';
-    img.alt = 'Zdjęcie domu w Czarnowie ' + (i + 1);
-    fig.appendChild(img);
-    fig.addEventListener('click', () => openLightbox(i));
-    gallery.appendChild(fig);
-  });
+<div class="lightbox" id="lightbox">
+  <span class="close" id="lightbox-close">&times;</span>
+  <span class="nav prev" id="lightbox-prev">&#8249;</span>
+  <img id="lightbox-img" src="" alt="">
+  <span class="nav next" id="lightbox-next">&#8250;</span>
+</div>
 
-  const lightbox = document.getElementById('lightbox');
-  const lightboxImg = document.getElementById('lightbox-img');
-  let current = 0;
-
-  function openLightbox(i) {
-    current = i;
-    showImage();
-    lightbox.classList.add('open');
-  }
-  function showImage() {
-    lightboxImg.src = 'images/' + images[current];
-  }
-  function closeLightbox() {
-    lightbox.classList.remove('open');
-  }
-  document.getElementById('lightbox-close').addEventListener('click', closeLightbox);
-  document.getElementById('lightbox-prev').addEventListener('click', (e) => {
-    e.stopPropagation();
-    current = (current - 1 + images.length) % images.length;
-    showImage();
-  });
-  document.getElementById('lightbox-next').addEventListener('click', (e) => {
-    e.stopPropagation();
-    current = (current + 1) % images.length;
-    showImage();
-  });
-  lightbox.addEventListener('click', (e) => {
-    if (e.target === lightbox) closeLightbox();
-  });
-  document.addEventListener('keydown', (e) => {
-    if (!lightbox.classList.contains('open')) return;
-    if (e.key === 'Escape') closeLightbox();
-    if (e.key === 'ArrowLeft') { current = (current - 1 + images.length) % images.length; showImage(); }
-    if (e.key === 'ArrowRight') { current = (current + 1) % images.length; showImage(); }
-  });
-</script>
-
+<script src="assets/script.js"></script>
 </body>
 </html>
