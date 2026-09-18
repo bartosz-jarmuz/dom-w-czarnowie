@@ -25,8 +25,23 @@ declare -a MAP=(
   "rzuty|rzuty"
 )
 
-# Exact near-duplicate source shots to skip when (re)generating images/ogrod.
-EXCLUDE_OGROD=("IMG_6208.HEIC" "IMG_9238.HEIC")
+# Exact near-duplicate / unwanted source shots to skip when (re)generating a
+# given slug's images. Format: "slug|source-basename".
+EXCLUDE=(
+  "ogrod|IMG_6208.HEIC"
+  "ogrod|IMG_9238.HEIC"
+  "salon|IMG_6357_wideo.jpg"
+  "salon|IMG_7518_wideo.jpg"
+  "pokoj-8|IMG_1315_wideo.jpg"
+  "lazienka-mala|IMG_9351.jpg"
+  "wiatrolap|IMG_9356.jpg"
+  "lazienka-duza|IMG_9358.jpg"
+  "lazienka-duza|IMG_9360.jpg"
+  "pokoj-17|20260917_184113.jpg"
+  "pokoj-17|20260917_185944.jpg"
+  "sauna|20241204_110535_wideo.jpg"
+  "schowek|IMG_6361_wideo.jpg"
+)
 
 # NOTE: this wipes and regenerates images/ from photos/ — any manual edit made
 # directly on a file under images/ (e.g. the face-sticker on pokoj-9) is lost
@@ -43,11 +58,9 @@ for entry in "${MAP[@]}"; do
   mkdir -p "$outdir"
   find "$srcdir" -maxdepth 1 -type f \( -iname '*.heic' -o -iname '*.jpg' -o -iname '*.jpeg' \) | sort | while IFS= read -r f; do
     base=$(basename "$f")
-    if [ "$slug" = "ogrod" ]; then
-      for skip in "${EXCLUDE_OGROD[@]}"; do
-        [ "$base" = "$skip" ] && continue 2
-      done
-    fi
+    for skip in "${EXCLUDE[@]}"; do
+      [ "$skip" = "${slug}|${base}" ] && continue 2
+    done
     name="${base%.*}"
     safe_name=$(echo "$name" | tr ' ()' '___')
     out="$outdir/${safe_name}.jpg"

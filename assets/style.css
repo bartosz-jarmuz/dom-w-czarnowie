@@ -326,6 +326,9 @@ img { max-width: 100%; }
   cursor: zoom-in;
   aspect-ratio: 4 / 3;
 }
+.gallery figure.portrait {
+  aspect-ratio: 3 / 4;
+}
 .gallery img {
   width: 100%;
   height: 100%;
@@ -374,25 +377,71 @@ img { max-width: 100%; }
   .spec-tables { grid-template-columns: 1fr; }
 }
 
-.amenities {
-  display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
-  gap: 10px;
+.room-list {
+  margin: 6px 0 20px;
+}
+.room-list h4 {
+  margin: 18px 0 8px;
+  font-size: 14px;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  color: var(--accent);
+}
+.room-list h4:first-child { margin-top: 0; }
+.room-list ul {
   list-style: none;
-  margin: 0 0 36px;
+  margin: 0;
   padding: 0;
 }
-.amenities li {
-  background: var(--card-bg);
-  border: 1px solid var(--border);
-  border-radius: 10px;
-  padding: 10px 14px;
-  font-size: 15px;
+.room-list li {
   display: flex;
-  align-items: center;
-  gap: 8px;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: 10px;
+  padding: 7px 0;
+  border-bottom: 1px solid var(--border);
+  line-height: 1.4;
 }
-.amenities li::before { content: "✓"; color: var(--accent); font-weight: bold; }
+.room-list li:last-child { border-bottom: none; }
+.room-list .room-area {
+  flex-shrink: 0;
+}
+
+.amenities-inline {
+  list-style: none;
+  margin: 0 0 20px;
+  padding: 0;
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
+  gap: 8px 20px;
+}
+.amenities-inline li {
+  display: flex;
+  align-items: baseline;
+  gap: 8px;
+  line-height: 1.4;
+}
+.amenities-inline li::before { content: "✓"; color: var(--accent); font-weight: bold; }
+
+.feature-tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin: 10px 0 0;
+}
+.feature-tag {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  background: var(--bg-alt);
+  border: 1px solid var(--border);
+  border-radius: 999px;
+  padding: 4px 13px;
+  font-size: 13px;
+  color: var(--accent-strong);
+  font-weight: 600;
+}
+.feature-tag::before { content: "✓"; color: var(--accent); }
 
 .scan-note {
   text-align: center;
@@ -433,13 +482,15 @@ img { max-width: 100%; }
   padding: 40px 30px;
 }
 .contact-card h3 { margin: 0 0 6px; font-size: 22px; }
-.contact-card .placeholder {
-  color: var(--muted);
-  font-style: italic;
+.contact-card .phone {
+  font-size: 28px;
+  font-weight: 700;
+  color: var(--accent-strong);
   margin: 14px 0 0;
-  border: 1px dashed var(--border);
-  border-radius: 10px;
-  padding: 14px;
+}
+.contact-card .phone a {
+  color: inherit;
+  text-decoration: none;
 }
 
 footer {

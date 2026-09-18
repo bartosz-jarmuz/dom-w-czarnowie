@@ -4,13 +4,14 @@ const FLOORS = [
     label: "Parter",
     meta: "część dzienna",
     intro: "",
+    tags: ["Klimatyzacja", "Pompa ciepła (gruntowa)", "Ogrzewanie podłogowe", "Smart oświetlenie", "Alarm Solid"],
     rooms: [
       {
         slug: "salon",
         title: "Salon",
         area: "28,03 m²",
         blurb: "Największe pomieszczenie w domu — salon z klatką schodową prowadzącą na piętro. Serce domu, z widokiem na ogród.",
-        files: ["IMG_5082.jpg", "IMG_5083.jpg", "IMG_6357.jpg", "IMG_6357_wideo.jpg", "IMG_7518.jpg", "IMG_7518_wideo.jpg", "2014_-_9125519_6_655x491_clean.jpg"],
+        files: ["IMG_5082.jpg", "IMG_5083.jpg", "IMG_6357.jpg", "IMG_7518.jpg", "2014_-_9125519_6_655x491_clean.jpg"],
       },
       {
         slug: "kuchnia",
@@ -24,14 +25,14 @@ const FLOORS = [
         title: "Pokój",
         area: "8,09 m²",
         blurb: "Dodatkowy pokój na parterze — bez potrzeby wchodzenia po schodach.",
-        files: ["IMG_1315.jpg", "IMG_1315_wideo.jpg", "IMG_3089.jpg", "IMG_3615.jpg"],
+        files: ["IMG_1315.jpg", "IMG_3089.jpg", "IMG_3615.jpg"],
       },
       {
         slug: "lazienka-mala",
         title: "Łazienka",
         area: "2,91 m²",
         blurb: "Łazienka na parterze — prysznic i WC.",
-        files: ["IMG_9347.jpg", "IMG_9350.jpg", "IMG_9351.jpg", "IMG_9352.jpg"],
+        files: ["IMG_9347.jpg", "IMG_9350.jpg", "IMG_9352.jpg"],
       },
       {
         slug: "korytarz",
@@ -52,7 +53,7 @@ const FLOORS = [
         title: "Wiatrołap",
         area: "5,75 m²",
         blurb: "Wejście do domu — pierwsze pomieszczenie, w którym można zostawić buty i kurtki przed dalszą częścią domu.",
-        files: ["IMG_9353.jpg", "IMG_9354.jpg", "IMG_9355.jpg", "IMG_9356.jpg"],
+        files: ["IMG_9353.jpg", "IMG_9354.jpg", "IMG_9355.jpg"],
       },
     ],
   },
@@ -88,28 +89,28 @@ const FLOORS = [
         title: "Łazienka",
         area: "5,77 m²",
         blurb: "Druga łazienka, na piętrze — z wanną i WC.",
-        files: ["IMG_9357.jpg", "IMG_9358.jpg", "IMG_9359.jpg", "IMG_9360.jpg", "IMG_9361.jpg"],
+        files: ["IMG_9357.jpg", "IMG_9359.jpg", "IMG_9361.jpg"],
       },
       {
         slug: "pokoj-17",
         title: "Pokój",
         area: "17,27 m²",
         blurb: "Największy pokój na piętrze. W zabudowanej wnęce znajduje się sauna. Obecnie funkcjonuje jako domowe biuro i siłownia — równie dobrze sprawdzi się jako sypialnia.",
-        files: ["20180127_113306.jpg", "20241204_110742.jpg", "20260917_184015.jpg", "20260917_184028.jpg", "20260917_184113.jpg", "20260917_184136.jpg", "20260917_185916.jpg", "20260917_185928.jpg", "20260917_185944.jpg", "2014_-_9125519_13_655x491_clean.jpg"],
+        files: ["20180127_113306.jpg", "20241204_110742.jpg", "20260917_184015.jpg", "20260917_184028.jpg", "20260917_184136.jpg", "20260917_185916.jpg", "20260917_185928.jpg", "2014_-_9125519_13_655x491_clean.jpg"],
       },
       {
         slug: "sauna",
         title: "Sauna",
         area: "",
         blurb: "Sauna wbudowana we wnękę sąsiedniego pokoju (17 m²).",
-        files: ["20241204_110535_wideo.jpg", "20241204_110610.jpg", "20241204_110618.jpg", "20241204_110628.jpg"],
+        files: ["20241204_110610.jpg", "20241204_110618.jpg", "20241204_110628.jpg"],
       },
       {
         slug: "schowek",
         title: "Schowek",
         area: "3,45 m²",
         blurb: "Schowek / składzik na piętrze — dodatkowa przestrzeń na przechowywanie.",
-        files: ["IMG_6361.jpg", "IMG_6361_wideo.jpg"],
+        files: ["IMG_6361.jpg"],
       },
       {
         slug: "klatka-schodowa",
@@ -125,12 +126,14 @@ const FLOORS = [
     label: "Na zewnątrz",
     meta: "ogród, taras, zabudowania",
     intro: "Dom otacza zadbany ogród z wieloletnimi nasadzeniami, a na podjeździe zmieszczą się niezależnie dwa samochody. Do tego solidna wiata garażowa z budynkiem gospodarczym.",
+    tags: ["Kamery monitoringu", "Fotowoltaika"],
     rooms: [
       {
         slug: "wiata",
         title: "Wiata garażowa",
         area: "",
         blurb: "Solidna wiata garażowa na podjeździe, obok budynku gospodarczego.",
+        tags: ["Brama na pilota"],
         files: ["20260809_175229.jpg", "20260809_175533.jpg", "20260809_175559.jpg", "20260809_175610.jpg", "20260809_175715.jpg", "20260812_175254.jpg"],
       },
       {
@@ -145,6 +148,7 @@ const FLOORS = [
         title: "Ogród i otoczenie",
         area: "",
         blurb: "Ogród obsadzony wieloletnimi roślinami iglastymi i liściastymi, taras i otoczenie domu w różnych porach roku.",
+        tags: ["Automatyczne nawodnienie ogródka", "Robot koszący trawę"],
         files: [
           "IMG_9242.jpg", "IMG_9312.jpg", "IMG_9245.jpg", "IMG_9314.jpg", "IMG_9207.jpg", "IMG_9236.jpg", "IMG_9239.jpg", "IMG_9249.jpg",
           "IMG_6975.jpg", "IMG_9888.jpg", "IMG_4112.jpg", "IMG_4113.jpg", "IMG_5021.jpg", "IMG_5019.jpg", "IMG_5018.jpg", "IMG_4921.jpg", "IMG_5574.jpg", "IMG_1474.jpg", "IMG_8941.jpg",
@@ -183,6 +187,11 @@ function buildGallery(container, folder, files, extraClass) {
     img.src = item.src;
     img.loading = "lazy";
     img.alt = "";
+    img.addEventListener("load", () => {
+      if (img.naturalHeight > img.naturalWidth) {
+        fig.classList.add("portrait");
+      }
+    });
     fig.appendChild(img);
     registerLightboxImage(img, items);
     wrap.appendChild(fig);
@@ -215,6 +224,14 @@ function renderFloors() {
       root.appendChild(p);
     }
 
+    if (floor.tags && floor.tags.length) {
+      const tagsWrap = document.createElement("div");
+      tagsWrap.className = "feature-tags";
+      tagsWrap.style.marginBottom = "28px";
+      tagsWrap.innerHTML = floor.tags.map((t) => `<span class="feature-tag">${t}</span>`).join("");
+      root.appendChild(tagsWrap);
+    }
+
     const navGroup = document.createElement("div");
     navGroup.className = "dropdown-group";
     navGroup.innerHTML = `<h4>${floor.label}</h4>`;
@@ -229,6 +246,7 @@ function renderFloors() {
           ${room.area ? `<span class="room-area">${room.area}</span>` : ""}
         </div>
         <p class="room-blurb">${room.blurb}</p>
+        ${room.tags && room.tags.length ? `<div class="feature-tags">${room.tags.map((t) => `<span class="feature-tag">${t}</span>`).join("")}</div>` : ""}
       `;
       root.appendChild(section);
       if (room.files.length) {
