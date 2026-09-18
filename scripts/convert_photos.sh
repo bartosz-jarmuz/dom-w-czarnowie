@@ -25,6 +25,12 @@ declare -a MAP=(
   "rzuty|rzuty"
 )
 
+# Exact near-duplicate source shots to skip when (re)generating images/ogrod.
+EXCLUDE_OGROD=("IMG_6208.HEIC" "IMG_9238.HEIC")
+
+# NOTE: this wipes and regenerates images/ from photos/ — any manual edit made
+# directly on a file under images/ (e.g. the face-sticker on pokoj-9) is lost
+# on rerun and must be reapplied by hand afterwards.
 rm -rf images
 mkdir -p images
 
@@ -37,6 +43,11 @@ for entry in "${MAP[@]}"; do
   mkdir -p "$outdir"
   find "$srcdir" -maxdepth 1 -type f \( -iname '*.heic' -o -iname '*.jpg' -o -iname '*.jpeg' \) | sort | while IFS= read -r f; do
     base=$(basename "$f")
+    if [ "$slug" = "ogrod" ]; then
+      for skip in "${EXCLUDE_OGROD[@]}"; do
+        [ "$base" = "$skip" ] && continue 2
+      done
+    fi
     name="${base%.*}"
     safe_name=$(echo "$name" | tr ' ()' '___')
     out="$outdir/${safe_name}.jpg"

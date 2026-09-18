@@ -1,30 +1,16 @@
 const FLOORS = [
   {
-    id: "przyziemie",
-    label: "Przyziemie",
-    meta: "poziom 0 · część dzienna",
-    intro: "Wejście, salon i kuchnia — tu mieszka się w ciągu dnia. Do tej części należy też niewielki korytarz (2,56 m²) łączący pomieszczenia, bez własnej galerii zdjęć.",
+    id: "parter",
+    label: "Parter",
+    meta: "część dzienna",
+    intro: "",
     rooms: [
       {
-        slug: "wiatrolap",
-        title: "Wiatrołap",
-        area: "5,75 m²",
-        blurb: "Wejście do domu — pierwsze pomieszczenie, w którym można zostawić buty i kurtki przed dalszą częścią domu.",
-        files: ["IMG_9353.jpg", "IMG_9354.jpg", "IMG_9355.jpg", "IMG_9356.jpg"],
-      },
-      {
-        slug: "garderoba",
-        title: "Garderoba",
-        area: "3,06 m²",
-        blurb: "Niewielka garderoba na przyziemiu, obecnie wykorzystywana jako pralnia / spiżarnia.",
-        files: ["IMG_7403.jpg"],
-      },
-      {
-        slug: "lazienka-mala",
-        title: "Łazienka",
-        area: "2,91 m²",
-        blurb: "Łazienka na przyziemiu — prysznic i WC.",
-        files: ["IMG_9347.jpg", "IMG_9350.jpg", "IMG_9351.jpg", "IMG_9352.jpg"],
+        slug: "salon",
+        title: "Salon",
+        area: "28,03 m²",
+        blurb: "Największe pomieszczenie w domu — salon z klatką schodową prowadzącą na piętro. Serce domu, z widokiem na ogród.",
+        files: ["IMG_5082.jpg", "IMG_5083.jpg", "IMG_6357.jpg", "IMG_6357_wideo.jpg", "IMG_7518.jpg", "IMG_7518_wideo.jpg", "2014_-_9125519_6_655x491_clean.jpg"],
       },
       {
         slug: "kuchnia",
@@ -34,75 +20,103 @@ const FLOORS = [
         files: ["IMG_5184.jpg"],
       },
       {
-        slug: "salon",
-        title: "Salon",
-        area: "28,03 m²",
-        blurb: "Największe pomieszczenie w domu — salon z klatką schodową prowadzącą na poddasze. Serce domu, z widokiem na ogród.",
-        files: ["IMG_5082.jpg", "IMG_5083.jpg", "IMG_6357.jpg", "IMG_6357_wideo.jpg", "IMG_7518.jpg", "IMG_7518_wideo.jpg", "2014_-_9125519_6_655x491_clean.jpg"],
+        slug: "pokoj-8",
+        title: "Pokój",
+        area: "8,09 m²",
+        blurb: "Dodatkowy pokój na parterze — bez potrzeby wchodzenia po schodach.",
+        files: ["IMG_1315.jpg", "IMG_1315_wideo.jpg", "IMG_3089.jpg", "IMG_3615.jpg"],
       },
       {
-        slug: "pokoj-8",
-        title: "Pokój dziecięcy",
-        area: "8,09 m²",
-        blurb: "Dodatkowy pokój na przyziemiu, obecnie pokój dziecięcy — bez potrzeby wchodzenia po schodach.",
-        files: ["IMG_1315.jpg", "IMG_1315_wideo.jpg", "IMG_3089.jpg", "IMG_3615.jpg"],
+        slug: "lazienka-mala",
+        title: "Łazienka",
+        area: "2,91 m²",
+        blurb: "Łazienka na parterze — prysznic i WC.",
+        files: ["IMG_9347.jpg", "IMG_9350.jpg", "IMG_9351.jpg", "IMG_9352.jpg"],
+      },
+      {
+        slug: "korytarz",
+        title: "Korytarz",
+        area: "2,56 m²",
+        blurb: "Niewielki korytarz łączący pomieszczenia na parterze.",
+        files: [],
+      },
+      {
+        slug: "garderoba",
+        title: "Garderoba",
+        area: "3,06 m²",
+        blurb: "Niewielka garderoba na parterze, obecnie wykorzystywana jako pralnia / spiżarnia.",
+        files: ["IMG_7403.jpg"],
+      },
+      {
+        slug: "wiatrolap",
+        title: "Wiatrołap",
+        area: "5,75 m²",
+        blurb: "Wejście do domu — pierwsze pomieszczenie, w którym można zostawić buty i kurtki przed dalszą częścią domu.",
+        files: ["IMG_9353.jpg", "IMG_9354.jpg", "IMG_9355.jpg", "IMG_9356.jpg"],
       },
     ],
   },
   {
-    id: "poddasze",
-    label: "Poddasze",
+    id: "pietro",
+    label: "Piętro",
     meta: "część nocna",
-    intro: "Poddasze użytkowe — tutaj śpi się i odpoczywa. Trzy sypialnie, druga łazienka i schowek, a wszystko pod skosami dachu.",
+    intro: "W dokumentacji technicznej ta część domu jest opisana jako poddasze użytkowe — potocznie to po prostu piętro.",
     rooms: [
-      {
-        slug: "klatka-schodowa",
-        title: "Klatka schodowa",
-        area: "2,74 m²",
-        blurb: "Schody z salonu prowadzące na poddasze.",
-        files: ["IMG_9376.jpg"],
-      },
       {
         slug: "przedpokoj",
         title: "Przedpokój",
         area: "6,40 m²",
-        blurb: "Niewielki hol na piętrze, z którego rozchodzą się wszystkie pomieszczenia poddasza.",
+        blurb: "Niewielki hol na piętrze, z którego rozchodzą się wszystkie pomieszczenia.",
         files: ["20260917_210047.jpg"],
-      },
-      {
-        slug: "pokoj-17",
-        title: "Pokój",
-        area: "17,27 m²",
-        blurb: "Największy pokój na poddaszu. W zabudowanej wnęce znajduje się sauna. Obecnie funkcjonuje jako domowe biuro i siłownia — równie dobrze sprawdzi się jako sypialnia.",
-        files: ["20180127_113306.jpg", "20241204_110742.jpg", "20260917_184015.jpg", "20260917_184028.jpg", "20260917_184113.jpg", "20260917_184136.jpg", "20260917_185916.jpg", "20260917_185928.jpg", "20260917_185944.jpg", "2014_-_9125519_13_655x491_clean.jpg"],
       },
       {
         slug: "pokoj-13",
         title: "Sypialnia",
         area: "13,08 m²",
-        blurb: "Druga sypialnia na poddaszu, z dużą szafą i wyjściem na balkon.",
+        blurb: "Sypialnia na piętrze, z dużą szafą i wyjściem na balkon.",
         files: ["IMG_5468.jpg", "2014_-_9125519_12_655x491_clean.jpg"],
       },
       {
         slug: "pokoj-9",
-        title: "Pokój dziecięcy",
+        title: "Pokój",
         area: "8,58 m²",
-        blurb: "Trzeci, najmniejszy pokój na poddaszu — obecnie pokój dziecięcy.",
+        blurb: "Trzeci, najmniejszy pokój na piętrze.",
         files: ["IMG_3095.jpg"],
       },
       {
         slug: "lazienka-duza",
         title: "Łazienka",
         area: "5,77 m²",
-        blurb: "Druga łazienka, na poddaszu — z wanną i WC.",
+        blurb: "Druga łazienka, na piętrze — z wanną i WC.",
         files: ["IMG_9357.jpg", "IMG_9358.jpg", "IMG_9359.jpg", "IMG_9360.jpg", "IMG_9361.jpg"],
+      },
+      {
+        slug: "pokoj-17",
+        title: "Pokój",
+        area: "17,27 m²",
+        blurb: "Największy pokój na piętrze. W zabudowanej wnęce znajduje się sauna. Obecnie funkcjonuje jako domowe biuro i siłownia — równie dobrze sprawdzi się jako sypialnia.",
+        files: ["20180127_113306.jpg", "20241204_110742.jpg", "20260917_184015.jpg", "20260917_184028.jpg", "20260917_184113.jpg", "20260917_184136.jpg", "20260917_185916.jpg", "20260917_185928.jpg", "20260917_185944.jpg", "2014_-_9125519_13_655x491_clean.jpg"],
+      },
+      {
+        slug: "sauna",
+        title: "Sauna",
+        area: "",
+        blurb: "Sauna wbudowana we wnękę sąsiedniego pokoju (17 m²).",
+        files: ["20241204_110535_wideo.jpg", "20241204_110610.jpg", "20241204_110618.jpg", "20241204_110628.jpg"],
       },
       {
         slug: "schowek",
         title: "Schowek",
         area: "3,45 m²",
-        blurb: "Schowek / składzik na poddaszu — dodatkowa przestrzeń na przechowywanie.",
+        blurb: "Schowek / składzik na piętrze — dodatkowa przestrzeń na przechowywanie.",
         files: ["IMG_6361.jpg", "IMG_6361_wideo.jpg"],
+      },
+      {
+        slug: "klatka-schodowa",
+        title: "Klatka schodowa",
+        area: "2,74 m²",
+        blurb: "Schody z salonu prowadzące na piętro.",
+        files: ["IMG_9376.jpg"],
       },
     ],
   },
@@ -110,7 +124,7 @@ const FLOORS = [
     id: "otoczenie",
     label: "Na zewnątrz",
     meta: "ogród, taras, zabudowania",
-    intro: "Dom otacza zadbany ogród z wieloletnimi nasadzeniami, a na podjeździe zmieszczą się niezależnie dwa samochody. Do tego solidna wiata garażowa z budynkiem gospodarczym oraz sauna.",
+    intro: "Dom otacza zadbany ogród z wieloletnimi nasadzeniami, a na podjeździe zmieszczą się niezależnie dwa samochody. Do tego solidna wiata garażowa z budynkiem gospodarczym.",
     rooms: [
       {
         slug: "wiata",
@@ -127,18 +141,17 @@ const FLOORS = [
         files: ["IMG_20200711_160328.jpg", "IMG_20200711_160337.jpg"],
       },
       {
-        slug: "sauna",
-        title: "Sauna",
-        area: "",
-        blurb: "Sauna wbudowana we wnękę największego pokoju na poddaszu (17 m²).",
-        files: ["20241204_110535_wideo.jpg", "20241204_110610.jpg", "20241204_110618.jpg", "20241204_110628.jpg"],
-      },
-      {
         slug: "ogrod",
         title: "Ogród i otoczenie",
         area: "",
         blurb: "Ogród obsadzony wieloletnimi roślinami iglastymi i liściastymi, taras i otoczenie domu w różnych porach roku.",
-        files: ["20230203_115105.jpg","20240317_190705.jpg","20240407_155729.jpg","20260809_175751.jpg","20260812_175036.jpg","20260812_191121.jpg","20260812_191146.jpg","20260905_160002.jpg","20260905_160025.jpg","20260917_123624.jpg","IMG_1474.jpg","IMG_20211224_125849.jpg","IMG_4112.jpg","IMG_4113.jpg","IMG_4921.jpg","IMG_4959.jpg","IMG_5018.jpg","IMG_5019.jpg","IMG_5021.jpg","IMG_5574.jpg","IMG_5655.jpg","IMG_6208.jpg","IMG_6209.jpg","IMG_6214.jpg","IMG_6509.jpg","IMG_6975.jpg","IMG_8093.jpg","IMG_8660.jpg","IMG_8874.jpg","IMG_8941.jpg","IMG_9207.jpg","IMG_9236.jpg","IMG_9238.jpg","IMG_9239.jpg","IMG_9242.jpg","IMG_9245.jpg","IMG_9249.jpg","IMG_9312.jpg","IMG_9314.jpg","IMG_9888.jpg"],
+        files: [
+          "IMG_9242.jpg", "IMG_9312.jpg", "IMG_9245.jpg", "IMG_9314.jpg", "IMG_9207.jpg", "IMG_9236.jpg", "IMG_9239.jpg", "IMG_9249.jpg",
+          "IMG_6975.jpg", "IMG_9888.jpg", "IMG_4112.jpg", "IMG_4113.jpg", "IMG_5021.jpg", "IMG_5019.jpg", "IMG_5018.jpg", "IMG_4921.jpg", "IMG_5574.jpg", "IMG_1474.jpg", "IMG_8941.jpg",
+          "IMG_6509.jpg", "20240407_155729.jpg", "20260917_123624.jpg", "20260905_160002.jpg", "20260905_160025.jpg", "20260809_175751.jpg", "20260812_175036.jpg", "20260812_191121.jpg", "20260812_191146.jpg",
+          "IMG_4959.jpg", "IMG_8660.jpg",
+          "IMG_5655.jpg", "20240317_190705.jpg", "IMG_20211224_125849.jpg", "IMG_6209.jpg", "IMG_6214.jpg", "IMG_8093.jpg", "IMG_8874.jpg", "20230203_115105.jpg",
+        ],
       },
     ],
   },
@@ -187,7 +200,6 @@ function renderFloors() {
     floorIntro.className = "floor-intro";
     floorIntro.id = floor.id;
     floorIntro.innerHTML = `
-      <div class="floor-number">${floor.label === "Na zewnątrz" ? "🌿" : floor.rooms.length}</div>
       <h3>${floor.label}</h3>
       <span class="meta">${floor.meta}</span>
     `;
@@ -219,7 +231,9 @@ function renderFloors() {
         <p class="room-blurb">${room.blurb}</p>
       `;
       root.appendChild(section);
-      buildGallery(section, room.slug, room.files);
+      if (room.files.length) {
+        buildGallery(section, room.slug, room.files);
+      }
 
       const a = document.createElement("a");
       a.href = `#${room.slug}`;
@@ -287,9 +301,22 @@ function setupNav() {
   });
 }
 
+function setupSpecDetails() {
+  const details = document.getElementById("specyfikacja");
+  if (!details) return;
+  const openIfTargeted = () => {
+    if (window.location.hash === "#specyfikacja") {
+      details.open = true;
+    }
+  };
+  openIfTargeted();
+  window.addEventListener("hashchange", openIfTargeted);
+}
+
 document.addEventListener("DOMContentLoaded", () => {
   renderFloors();
   renderScans();
   setupLightboxControls();
   setupNav();
+  setupSpecDetails();
 });
