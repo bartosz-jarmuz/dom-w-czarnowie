@@ -32,7 +32,7 @@ const FLOORS = [
         title: "Łazienka",
         area: "2,91 m²",
         blurb: "Łazienka na parterze — prysznic i WC.",
-        files: ["IMG_9347.jpg", "IMG_9350.jpg", "IMG_9352.jpg"],
+        files: ["IMG_9350.jpg", "IMG_9352.jpg"],
       },
       {
         slug: "korytarz",
@@ -53,7 +53,7 @@ const FLOORS = [
         title: "Wiatrołap",
         area: "5,75 m²",
         blurb: "Wejście do domu — pierwsze pomieszczenie, w którym można zostawić buty i kurtki przed dalszą częścią domu.",
-        files: ["IMG_9353.jpg", "IMG_9354.jpg", "IMG_9355.jpg"],
+        files: ["IMG_9353.jpg", "IMG_9355.jpg"],
       },
     ],
   },
@@ -89,7 +89,7 @@ const FLOORS = [
         title: "Łazienka",
         area: "5,77 m²",
         blurb: "Druga łazienka, na piętrze — z wanną i WC.",
-        files: ["IMG_9357.jpg", "IMG_9359.jpg", "IMG_9361.jpg"],
+        files: ["IMG_9357.jpg", "IMG_9359.jpg"],
       },
       {
         slug: "pokoj-17",
