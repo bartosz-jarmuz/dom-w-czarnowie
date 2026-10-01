@@ -170,11 +170,20 @@ const SCANS = {
 let lightboxItems = [];
 let lightboxIndex = 0;
 
-function registerLightboxImage(img, groupItems) {
+// Every image on the page, in reading order, so the lightbox can step through all of them.
+function collectLightboxItems() {
+  const imgs = [
+    ...document.querySelectorAll("#pomieszczenia-body img, #rzuty-gallery img, .cost-chart img"),
+    ...document.querySelectorAll("#opis-gallery img"),
+  ];
+  return imgs.map((img) => ({ img, src: img.getAttribute("src") }));
+}
+
+function registerLightboxImage(img) {
   img.addEventListener("click", () => {
-    lightboxItems = groupItems;
-    lightboxIndex = groupItems.findIndex((it) => it.src === img.getAttribute("src"));
-    showLightbox();
+    lightboxItems = collectLightboxItems();
+    lightboxIndex = Math.max(0, lightboxItems.findIndex((it) => it.img === img));
+    openLightbox();
   });
 }
 
@@ -194,7 +203,7 @@ function buildGallery(container, folder, files, extraClass) {
       }
     });
     fig.appendChild(img);
-    registerLightboxImage(img, items);
+    registerLightboxImage(img);
     wrap.appendChild(fig);
   });
   container.appendChild(wrap);
@@ -272,13 +281,43 @@ function renderScans() {
   buildGallery(opisContainer, "opis", SCANS.opis, "scans");
 }
 
+function buildFilmstrip() {
+  const strip = document.getElementById("lightbox-filmstrip");
+  strip.innerHTML = "";
+  lightboxItems.forEach((item, i) => {
+    const btn = document.createElement("button");
+    btn.className = "lightbox-thumb";
+    btn.type = "button";
+    btn.dataset.index = i;
+    btn.setAttribute("aria-label", `Zdjęcie ${i + 1} z ${lightboxItems.length}`);
+    const img = document.createElement("img");
+    img.src = item.src;
+    img.loading = "lazy";
+    img.alt = "";
+    btn.appendChild(img);
+    strip.appendChild(btn);
+  });
+}
+
+function openLightbox() {
+  buildFilmstrip();
+  document.getElementById("lightbox").classList.add("open");
+  document.body.style.overflow = "hidden";
+  showLightbox();
+}
+
 function showLightbox() {
-  const lightbox = document.getElementById("lightbox");
   document.getElementById("lightbox-img").src = lightboxItems[lightboxIndex].src;
-  lightbox.classList.add("open");
+  document.getElementById("lightbox-counter").textContent = `${lightboxIndex + 1} / ${lightboxItems.length}`;
+  document.querySelectorAll(".lightbox-thumb").forEach((btn) => {
+    const active = Number(btn.dataset.index) === lightboxIndex;
+    btn.classList.toggle("active", active);
+    if (active) btn.scrollIntoView({ block: "nearest", inline: "center" });
+  });
 }
 function closeLightbox() {
   document.getElementById("lightbox").classList.remove("open");
+  document.body.style.overflow = "";
 }
 function stepLightbox(delta) {
   lightboxIndex = (lightboxIndex + delta + lightboxItems.length) % lightboxItems.length;
@@ -290,7 +329,15 @@ function setupLightboxControls() {
   document.getElementById("lightbox-close").addEventListener("click", closeLightbox);
   document.getElementById("lightbox-prev").addEventListener("click", (e) => { e.stopPropagation(); stepLightbox(-1); });
   document.getElementById("lightbox-next").addEventListener("click", (e) => { e.stopPropagation(); stepLightbox(1); });
-  lightbox.addEventListener("click", (e) => { if (e.target === lightbox) closeLightbox(); });
+  document.getElementById("lightbox-filmstrip").addEventListener("click", (e) => {
+    const btn = e.target.closest(".lightbox-thumb");
+    if (!btn) return;
+    lightboxIndex = Number(btn.dataset.index);
+    showLightbox();
+  });
+  lightbox.addEventListener("click", (e) => {
+    if (e.target === lightbox || e.target.classList.contains("lightbox-stage")) closeLightbox();
+  });
   document.addEventListener("keydown", (e) => {
     if (!lightbox.classList.contains("open")) return;
     if (e.key === "Escape") closeLightbox();
@@ -335,6 +382,7 @@ function setupSpecDetails() {
 document.addEventListener("DOMContentLoaded", () => {
   renderFloors();
   renderScans();
+  document.querySelectorAll(".cost-chart img").forEach(registerLightboxImage);
   setupLightboxControls();
   setupNav();
   setupSpecDetails();
