@@ -586,3 +586,11 @@ footer {
   border-radius: 8px;
   cursor: zoom-in;
 }
+
+.card p a:not(.phone a) {
+  color: var(--accent-strong);
+  font-weight: 600;
+  text-decoration: underline;
+  text-underline-offset: 3px;
+}
+.card p a:not(.phone a):hover { color: var(--accent); }
